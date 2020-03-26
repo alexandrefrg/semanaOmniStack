@@ -12,8 +12,8 @@ module.exports = {
     },
     useNullAsDefault: true,
     pool: {
-      afteCreate: (conn, cb) => conn.run('PRAGMA foreign_key = ON', cb)
-    },
+      afterCreate: (conn, cb) => conn.run('PRAGMA foreign_keys = ON', cb)
+    }
   },
 
   staging: {
