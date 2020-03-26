@@ -11,6 +11,9 @@ module.exports = {
       directory: './src/database/migrations'
     },
     useNullAsDefault: true,
+    pool: {
+      afteCreate: (conn, cb) => conn.run('PRAGMA foreign_key = ON', cb)
+    },
   },
 
   staging: {

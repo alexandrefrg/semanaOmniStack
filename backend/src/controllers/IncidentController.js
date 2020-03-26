@@ -39,20 +39,24 @@ module.exports = {
   },
   
   async delete(request, response) {
-    const { id } = request.params;
-    const ong_id = request.headers.authorization;
+    const { id } = request.params
+    const ong_id = request.headers.authorization
 
-    const incident = await connection('incidents')
+    const incident = await db_connection('incidents')
       .where('id', id)
       .select('ong_id')
-      .first();
+      .first()
 
-    if (!!incident && incident.ong_id === ong_id) {
-      await connection('incidents').where('id', id).delete();
-
-      return response.status(204).send();
+    if (!incident) {
+      return response.status(412).json({ error: 'Incident not exists.' })
     }
 
-    return response.status(401).json({ error: 'Operation not permitted' });
-  }
+    if (ong_id !== incident.ong_id) {
+      return response.status(401).json({ error: 'Operation not permited.' })
+    }
+
+    await db_connection('incidents').where('id', id).delete()
+
+    return response.status(204).send()
+  },
 }
