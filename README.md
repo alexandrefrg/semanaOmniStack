@@ -11,6 +11,7 @@ Course done in a week to learn and develop a plataform using the follow technolo
     - axios;
     - react-router-dom;
 - Mobile:
-  - Reactive Native;
+  - Reactive Native:
+    - expo;
 - Database:
   - SQLite;
