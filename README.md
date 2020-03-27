@@ -6,8 +6,11 @@ Course done in a week to learn and develop a plataform using the follow technolo
     - knex;
     - express;
 - Front-end:
-  - React.js
+  - React.js:
+    - css3;
+    - axios;
+    - react-router-dom;
 - Mobile:
   - Reactive Native;
 - Database:
-  - SQLite
+  - SQLite;
